@@ -63,6 +63,15 @@
 #define RTIMULIB_MPU9250_GYRO_FSR           "MPU9250GyroFSR"
 #define RTIMULIB_MPU9250_ACCEL_FSR          "MPU9250AccelFSR"
 
+//  MPU9255 settings keys
+
+#define RTIMULIB_MPU9255_GYROACCEL_SAMPLERATE "MPU9255GyroAccelSampleRate"
+#define RTIMULIB_MPU9255_COMPASS_SAMPLERATE   "MPU9255CompassSampleRate"
+#define RTIMULIB_MPU9255_GYRO_LPF             "MPU9255GyroLpf"
+#define RTIMULIB_MPU9255_ACCEL_LPF            "MPU9255AccelLpf"
+#define RTIMULIB_MPU9255_GYRO_FSR             "MPU9255GyroFSR"
+#define RTIMULIB_MPU9255_ACCEL_FSR            "MPU9255AccelFSR"
+
 //  GD20HM303D settings keys
 
 #define RTIMULIB_GD20HM303D_GYRO_SAMPLERATE   "GD20HM303DGyroSampleRate"
@@ -104,6 +113,19 @@
 #define RTIMULIB_GD20HM303DLHC_COMPASS_SAMPLERATE "GD20HM303DLHCCompassSampleRate"
 #define RTIMULIB_GD20HM303DLHC_COMPASS_FSR      "GD20HM303DLHCCompassFsr"
 
+//  LSM6DS33 settings keys
+
+#define RTIMULIB_LSM6DS33_GYRO_SAMPLERATE   "LSM6DS33GyroSampleRate"
+#define RTIMULIB_LSM6DS33_GYRO_FSR          "LSM6DS33GyroFsr"
+
+#define RTIMULIB_LSM6DS33_ACCEL_SAMPLERATE  "LSM6DS33AccelSampleRate"
+#define RTIMULIB_LSM6DS33_ACCEL_BW          "LSM6DS33AccelBW"
+#define RTIMULIB_LSM6DS33_ACCEL_FSR         "LSM6DS33AccelFsr"
+
+#define RTIMULIB_LIS3MDL_COMPASS_SAMPLERATE "LSM6DS33CompassSampleRate"
+#define RTIMULIB_LIS3MDL_COMPASS_FSR        "LSM6DS33CompassFsr"
+#define RTIMULIB_LIS3MDL_COMPASS_XYMODE     "LSM6DS33CompassXYMode"
+#define RTIMULIB_LIS3MDL_COMPASS_ZMODE      "LSM6DS33CompassZMode"
 
 //  LSM9DS0 settings keys
 
@@ -273,6 +295,15 @@ public:
     int m_MPU9250GyroFsr;                                   // FSR code for the gyro
     int m_MPU9250AccelFsr;                                  // FSR code for the accel
 
+    //  MPU9255
+
+    int m_MPU9255GyroAccelSampleRate;                       // the sample rate (samples per second) for gyro and accel
+    int m_MPU9255CompassSampleRate;                         // same for the compass
+    int m_MPU9255GyroLpf;                                   // low pass filter code for the gyro
+    int m_MPU9255AccelLpf;                                  // low pass filter code for the accel
+    int m_MPU9255GyroFsr;                                   // FSR code for the gyro
+    int m_MPU9255AccelFsr;                                  // FSR code for the accel
+
     //  GD20HM303D
 
     int m_GD20HM303DGyroSampleRate;                         // the gyro sample rate
@@ -312,6 +343,20 @@ public:
 
     int m_GD20HM303DLHCCompassSampleRate;                   // the compass sample rate
     int m_GD20HM303DLHCCompassFsr;                          // the compass full scale range
+
+    //  LSM6DS33
+
+    int m_LSM6DS33GyroSampleRate;                           // the gyro sample rate
+    int m_LSM6DS33GyroFsr;                                  // the gyro full scale range
+
+    int m_LSM6DS33AccelSampleRate;                          // the accel sample rate
+    int m_LSM6DS33AccelBW;                                  // the accel bandwidth code
+    int m_LSM6DS33AccelFsr;                                 // the accel full scale range
+
+    int m_LIS3MDLCompassSampleRate;                         // the compass sample rate
+    int m_LIS3MDLCompassFsr;                                // the compass full scale range
+    int m_LIS3MDLCompassXYMode;                             // the compass XY axes operating mode
+    int m_LIS3MDLCompassZMode;                              // the compass Z axis operating mode
 
     //  LSM9DS0
 

@@ -58,8 +58,10 @@ SET(LIBRTIMU_SRCS
     IMUDrivers/RTIMUGD20HM303D.cpp
     IMUDrivers/RTIMULSM9DS0.cpp
     IMUDrivers/RTIMULSM9DS1.cpp
+    IMUDrivers/RTIMULSM6DS33.cpp
     IMUDrivers/RTIMUMPU9150.cpp
     IMUDrivers/RTIMUMPU9250.cpp
+    IMUDrivers/RTIMUMPU9255.cpp
     IMUDrivers/RTIMUBMX055.cpp
     IMUDrivers/RTIMUBNO055.cpp
     IMUDrivers/RTIMUNull.cpp

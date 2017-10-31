@@ -22,34 +22,37 @@
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-#ifndef _RTIMULIB_H
-#define	_RTIMULIB_H
+#ifndef _RTIMULSM6DS33_H
+#define	_RTIMULSM6DS33_H
 
-#include "RTIMULibDefs.h"
+#include "RTIMU.h"
 
-#include "RTMath.h"
+class RTIMULSM6DS33 : public RTIMU
+{
+public:
+    RTIMULSM6DS33(RTIMUSettings *settings);
+    ~RTIMULSM6DS33();
 
-#include "RTFusion.h"
-#include "RTFusionKalman4.h"
+    virtual const char *IMUName() { return "LSM6DS33 + LIS3MDL"; }
+    virtual int IMUType() { return RTIMU_TYPE_LSM6DS33; }
+    virtual bool IMUInit();
+    virtual int IMUGetPollInterval();
+    virtual bool IMURead();
 
-#include "RTIMUHal.h"
-#include "IMUDrivers/RTIMU.h"
-#include "IMUDrivers/RTIMUNull.h"
-#include "IMUDrivers/RTIMUMPU9150.h"
-#include "IMUDrivers/RTIMUMPU9255.h"
-#include "IMUDrivers/RTIMUGD20HM303D.h"
-#include "IMUDrivers/RTIMUGD20M303DLHC.h"
-#include "IMUDrivers/RTIMULSM9DS0.h"
+private:
+    bool setAccelCTRL1();
+    bool setGyroCTRL2();
+    bool setCompassCTRL1();
+    bool setCompassCTRL2();
+    bool setCompassCTRL3();
+    bool setCompassCTRL4();
 
-#include "IMUDrivers/RTPressure.h"
-#include "IMUDrivers/RTPressureBMP180.h"
-#include "IMUDrivers/RTPressureLPS25H.h"
-#include "IMUDrivers/RTPressureMS5611.h"
+    unsigned char m_accelGyroSlaveAddr;                     // I2C address of accel andgyro
+    unsigned char m_magSlaveAddr;                           // I2C address of mag
 
-#include "IMUDrivers/RTHumidity.h"
-#include "IMUDrivers/RTHumidityHTS221.h"
+    RTFLOAT m_gyroScale;
+    RTFLOAT m_accelScale;
+    RTFLOAT m_compassScale;
+};
 
-#include "RTIMUSettings.h"
-
-
-#endif // _RTIMULIB_H
+#endif // _RTIMULSM6DS33_H

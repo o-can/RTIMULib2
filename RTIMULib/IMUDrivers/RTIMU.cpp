@@ -29,11 +29,13 @@
 #include "RTIMUNull.h"
 #include "RTIMUMPU9150.h"
 #include "RTIMUMPU9250.h"
+#include "RTIMUMPU9255.h"
 #include "RTIMUGD20HM303D.h"
 #include "RTIMUGD20M303DLHC.h"
 #include "RTIMUGD20HM303DLHC.h"
 #include "RTIMULSM9DS0.h"
 #include "RTIMULSM9DS1.h"
+#include "RTIMULSM6DS33.h"
 #include "RTIMUBMX055.h"
 #include "RTIMUBNO055.h"
 
@@ -101,11 +103,18 @@ RTIMU *RTIMU::createIMU(RTIMUSettings *settings)
 
     case RTIMU_TYPE_LSM9DS0:
         return new RTIMULSM9DS0(settings);
+    
     case RTIMU_TYPE_LSM9DS1:
         return new RTIMULSM9DS1(settings);
+    
+    case RTIMU_TYPE_LSM6DS33:
+        return new RTIMULSM6DS33(settings);
 
     case RTIMU_TYPE_MPU9250:
         return new RTIMUMPU9250(settings);
+
+    case RTIMU_TYPE_MPU9255:
+        return new RTIMUMPU9255(settings);
 
     case RTIMU_TYPE_GD20HM303DLHC:
         return new RTIMUGD20HM303DLHC(settings);
